@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 let bGround = require('fcc-express-bground');
+let bodyParser = require('body-parser');
 require('dotenv').config();
 
 
@@ -13,6 +14,12 @@ const middleWare = (req, res, next) => {
 }
 
 app.use(middleWare);
+
+// Body parser usage
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+// console.log(bodyParser);
 
 // Meet node console
 console.log("Hello World");
@@ -65,6 +72,7 @@ app.get('/name', (req, res) => {
   let lastName = req.query.last;
   res.send({ "name": `${firstName} ${lastName}` });
 })
+
 
 
 
