@@ -2,6 +2,7 @@
 	"name": "fcc-learn-npm-package-json",
 	"author": "Cormac Quaid",
 	"dependencies": {
+		"cool-ascii-faces": "^1.3.4",
 		"express": "^4.14.0"
 	},
 	"main": "server.js",
