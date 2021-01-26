@@ -43,6 +43,14 @@ app.get('/json', (req, res) => {
   res.json(
     { "message": response }
   );
+});
+
+// Chaining middleware functions
+app.get('/now', (req, res, next) => {
+  req.time = new Date().toString();
+  next();
+}, (req, res) => {
+  res.send({"time": req.time});
 })
 
 
