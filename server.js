@@ -6,9 +6,11 @@
 'use strict';
 
 var fs = require('fs');
+var bGround = require('fcc-express-bground');
 var express = require('express');
 var app = express();
 const cool = require('cool-ascii-faces');
+var myApp = require('./myApp');
 
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
@@ -57,8 +59,8 @@ app.use(function(err, req, res, next) {
 // COOL faces on update
 app.get('/cool', (req, res) => res.send(cool()))
 
-
-app.listen(process.env.PORT || 3000, function () {
-  console.log(cool());
+let port = process.env.PORT || 3000;
+bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function () {
+  bGround.log("Node.js is listening on port " + port + "...");
 });
 
