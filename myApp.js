@@ -59,6 +59,12 @@ app.get('/:word/echo', (req, res) => {
   res.send({"echo": word});
 });
 
+// API endpoint getting query parameter
+app.get('/name', (req, res) => {
+  let firstName = req.query.first;
+  let lastName = req.query.last;
+  res.send({ "name": `${firstName} ${lastName}` });
+})
 
 
 
