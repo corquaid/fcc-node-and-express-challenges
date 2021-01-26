@@ -55,10 +55,10 @@ app.use(function(err, req, res, next) {
 })
 
 // COOL faces on update
-express.get('/cool', (req, res) => res.send(cool()))
+app.get('/cool', (req, res) => res.send(cool()))
 
 
 app.listen(process.env.PORT || 3000, function () {
-  console.log('Node.js listening ...');
+  console.log(cool());
 });
 
