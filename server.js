@@ -59,13 +59,6 @@ if (!process.env.DISABLE_XORIGIN) {
 // COOL faces on update
 app.get('/cool', (req, res) => res.send(cool()))
 
-// # Set up node server
-// app.get('/', (req, res) => res.send('Hello Express'));
-
-// Serve HTML file
-
-app.get('/', (req, res) => res.sendFile(__dirname + '/views/index.html'));
-
 
 
 let port = process.env.PORT || 3000;
