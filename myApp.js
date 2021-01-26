@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 let bGround = require('fcc-express-bground');
+require('dotenv').config();
 
 console.log("Hello World");
 bGround.log("Hello World");
@@ -16,10 +17,21 @@ let path = __dirname + '/public';
 app.use('/public', express.static(path));
 
 // Serve JSON 
-app.get('/json', (req, res) => res.json({ "message": "Hello json" }))
+// app.get('/json', (req, res) => res.json({ "message": "Hello json" }))
 
-
-
+// Setup env file
+app.get('/json', (req, res) => {
+  console.log(process.env.MESSAGE_STYLE, "< = message style")
+  let response = "Hello json";
+  if(process.env.MESSAGE_STYLE === "uppercase") {
+    response = response.toUpperCase();
+  } else {
+    response;
+  }
+  res.json(
+    { "message": response }
+  );
+})
 
 
 
