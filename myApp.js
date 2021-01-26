@@ -21,7 +21,7 @@ app.use('/public', express.static(path));
 
 // Setup env file
 app.get('/json', (req, res) => {
-  console.log(process.env.MESSAGE_STYLE, "< = message style")
+  
   let response = "Hello json";
   if(process.env.MESSAGE_STYLE === "uppercase") {
     response = response.toUpperCase();
@@ -32,6 +32,16 @@ app.get('/json', (req, res) => {
     { "message": response }
   );
 })
+
+// Root-level request logger middleware
+const middleWare = (req, res, next) => {
+  console.log(
+    '"' + req.method + ' ' + req.path + ' - ' + req.ip + '"'
+  );
+  next();
+}
+
+app.use(middleWare);
 
 
 
