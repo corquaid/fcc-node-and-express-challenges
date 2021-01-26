@@ -73,6 +73,11 @@ app.get('/name', (req, res) => {
   res.send({ "name": `${firstName} ${lastName}` });
 })
 
+// Getting data from POST requests
+app.post('/name', (req, res) => {
+  res.json({ name: req.body.first + " " + req.body.last });
+ });
+
 
 
 
