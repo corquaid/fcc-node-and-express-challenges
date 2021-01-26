@@ -59,6 +59,8 @@ if (!process.env.DISABLE_XORIGIN) {
 // COOL faces on update
 app.get('/cool', (req, res) => res.send(cool()))
 
+app.get('/', (req, res) => res.send('Hello Express'));
+
 let port = process.env.PORT || 3000;
 bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function () {
   bGround.log("Node.js is listening on port " + port + "...");
