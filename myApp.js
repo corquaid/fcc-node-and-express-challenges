@@ -51,7 +51,13 @@ app.get('/now', (req, res, next) => {
   next();
 }, (req, res) => {
   res.send({"time": req.time});
-})
+});
+
+// Get route parameter input from client
+app.get('/:word/echo', (req, res) => {
+  const { word } = req.params;
+  res.send({"echo": word});
+});
 
 
 
